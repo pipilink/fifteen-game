@@ -1,14 +1,16 @@
-# npm install
-# npm run start
-# npm run build:dev
-# npm run build:prod
+npm install
+npm run start
+npm run build:dev
+npm run build:prod
 
-Firebase:
+# Firebase:
 
-# firebase login
+firebase login
+
 firebase_login / firebase_password
 
-# npm run build:prod
+npm run build:prod
+
 # create .env file end input firebase parameters:
       REACT_APP_APIKEY
       REACT_APP_AUTHDOMAIN
@@ -47,4 +49,3 @@ Project initialization (run once):
 5. исправить настройки на домашнем PC:
  git config --global core.autocrlf false
  создать ssh ключ и загрузить его на github.com
- 
