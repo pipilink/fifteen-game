@@ -8,8 +8,8 @@
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development"
   },
-  "author": "Pipilink",
-  "license": "ISC",
+  "author": "Eugene Martynov",
+  "license": "MIT",
   "dependencies": {
     "css-loader": "^6.8.1",
     "firebase": "^10.6.0",
