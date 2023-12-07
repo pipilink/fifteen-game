@@ -6,16 +6,16 @@ npm run build:dev
 
 npm run build:prod
 
-
 # Firebase:
 
 firebase login
 
-use firebase_login and firebase_password for SignIn
+use firebase_login and firebase_password for SignIn in to Firebase server
 
 npm run build:prod
 
 # create .env file end input firebase parameters:
+
       REACT_APP_APIKEY
       REACT_APP_AUTHDOMAIN
       REACT_APP_DATABASEURL
@@ -26,9 +26,11 @@ npm run build:prod
       REACT_APP_MEASUREMENTID
 
 # firebase deploy
+
 Hosting URL: https://fifteen.web.app or your owned project name...
 
 Project initialization (run once):
+
 # init realtime database:
 
 1. make empty node players/
@@ -51,7 +53,7 @@ Project initialization (run once):
 3. Загрузить в БД массив стран с флагами и использовать их при выводе данных
 4. Переделать движок передвижения фишек. Реализовать возможность передвигать сразу несколько фишек в ряду или в столбце...
 5. исправить настройки на домашнем PC:
- git config --global core.autocrlf false
- создать ssh ключ и загрузить его на github.com
- 
- Would you like Code to [periodically run 'git fetch'](https://go.microsoft.com/fwlink/?linkid=865294)
+   git config --global core.autocrlf false
+   создать ssh ключ и загрузить его на github.com
+
+Would you like Code to [periodically run 'git fetch'](https://go.microsoft.com/fwlink/?linkid=865294)
