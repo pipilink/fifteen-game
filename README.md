@@ -11,7 +11,7 @@ npm run build:prod
 
 firebase login
 
-firebase_login / firebase_password
+use firebase_login and firebase_password for Sign In
 
 npm run build:prod
 
