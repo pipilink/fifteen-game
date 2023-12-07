@@ -53,3 +53,5 @@ Project initialization (run once):
 5. исправить настройки на домашнем PC:
  git config --global core.autocrlf false
  создать ssh ключ и загрузить его на github.com
+ 
+ Would you like Code to [periodically run 'git fetch'](https://go.microsoft.com/fwlink/?linkid=865294)
