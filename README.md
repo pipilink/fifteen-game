@@ -1,4 +1,4 @@
-Install project:
+# Install project:
 git clone git@github.com:pipilink/fifteen-game.git .
 
 npm install
