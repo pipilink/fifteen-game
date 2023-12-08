@@ -55,8 +55,3 @@ Project initialization (run once):
 2. Уменьшить размер билда (leasy loading) для отдельной загрузки массива стран.
 3. Загрузить в БД массив стран с флагами и использовать их при выводе данных
 4. Переделать движок передвижения фишек. Реализовать возможность передвигать сразу несколько фишек в ряду или в столбце...
-5. исправить настройки на домашнем PC:
-   git config --global core.autocrlf false
-   создать ssh ключ и загрузить его на github.com
-
-Would you like Code to [periodically run 'git fetch'](https://go.microsoft.com/fwlink/?linkid=865294)
