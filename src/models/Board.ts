@@ -5,6 +5,7 @@ export class Board {
   cells: Cell[][] = [];
   etalon: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
   gameList: [] = this.etalon.slice();
+  zerro: Cell;
 
   public initCells() {
     let index = 1;
@@ -17,6 +18,9 @@ export class Board {
         if (index <= 16) {
           row.push(new Cell(j, i, this.gameList[index - 1]));
           row0.push(new Cell(j, i, this.etalon[index - 1]));
+          if (this.gameList[index - 1] == 0) {
+            this.zerro = new Cell(j, i, 0)
+          }
         }
         index++;
       }
@@ -29,12 +33,17 @@ export class Board {
     if (x >= 0 && x <= 3 && y >= 0 && y <= 3) return this.cells[y][x];
     return undefined;
   }
+  
+  public setCell(x: number, y: number, id: number) {
+     this.cells[y][x].id = id;
+  }
+
 
   public getCopyBoard(): Board {
     const newBoard = new Board();
     newBoard.cells = this.cells;
     newBoard.cells0 = this.cells0;
-    console.log("Copy Board");
+    newBoard.zerro = this.zerro;
     return newBoard;
   }
 
