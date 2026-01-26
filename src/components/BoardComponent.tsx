@@ -92,7 +92,3 @@ const BoardComponent: FC<BoardProps> = ({
 };
 
 export default BoardComponent;
-function abs(arg0: number) {
-  throw new Error("Function not implemented.");
-}
-
