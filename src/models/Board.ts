@@ -1,7 +1,6 @@
 import { Cell } from "./Cell";
 
 export class Board {
-  cells0: Cell[][] = [];
   cells: Cell[][] = [];
   etalon: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
   gameList: [] = this.etalon.slice();
@@ -11,6 +10,7 @@ export class Board {
     let index = 1;
 
     this.gameList = this.shuffle(this.gameList);
+    
     for (let i = 0; i < 4; i++) {
       const row: Cell[] = [];
       const row0: Cell[] = [];
@@ -25,7 +25,6 @@ export class Board {
         index++;
       }
       this.cells.push(row);
-      this.cells0.push(row0);
     }
   }
 
@@ -37,13 +36,38 @@ export class Board {
   public setCell(x: number, y: number, id: number) {
      this.cells[y][x].id = id;
   }
+  
+  public checkList() {
+    let tmp: any = [];
+    let index: number = 1;
 
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+          tmp.push(this.cells[i][j].id);
+            if (this.cells[i][j].id == index && this.seqList(tmp)) 
+              this.cells[i][j].class="green"
+            else this.cells[i][j].class="chip"
+          index++
+      }
+    }
+    this.gameList = tmp;
+  }
+
+  private seqList(list: []): boolean {
+    return list.every((value, index) => value-1 === index);
+  }
+
+  public arraysEqual(a:[], b:[])  {
+    if (a === b) return true; 
+    if (a.length !== b.length) return false;
+  return a.every((v, i) => v === b[i]); 
+  }
 
   public getCopyBoard(): Board {
     const newBoard = new Board();
     newBoard.cells = this.cells;
-    newBoard.cells0 = this.cells0;
     newBoard.zerro = this.zerro;
+    newBoard.gameList = this.gameList;
     return newBoard;
   }
 

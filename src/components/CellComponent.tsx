@@ -11,7 +11,7 @@ interface CellProps {
 const CellComponent: FC<CellProps> = ({cell, name, click}) => {
   return <div className="pcell">
     { cell.id != 0? 
-    <div className="chip"
+    <div className = { cell.class }   // "chip"
         onClick={() => click(cell)}
     >
       { name }

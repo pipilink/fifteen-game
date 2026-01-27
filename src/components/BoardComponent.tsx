@@ -17,60 +17,58 @@ const BoardComponent: FC<BoardProps> = ({
   function click(cell: Cell) {
     let moveCell: Cell;
     moveStack(Board.zerro,cell);
-
   }
   
   function moveStack (zerro: Cell, cell: Cell) {
     let moveCell: Cell;
     if (zerro.y == cell.y) {
-        if (zerro.x > cell.x) {
-          while ( cell.x < zerro.x ) {
-            moveCell = Board.getCell(zerro.x - 1, zerro.y);
+      if (zerro.x > cell.x) {
+        while ( cell.x < zerro.x ) {
+          moveCell = Board.getCell(zerro.x - 1, zerro.y);
+          Board.setCell(zerro.x, zerro.y, moveCell.id);
+          zerro.x = zerro.x - 1;
+        }
+        Board.setCell(cell.x, cell.y, 0);
+        updateBoard();           
+      } else {
+        while ( cell.x > zerro.x ) {
+          moveCell = Board.getCell(zerro.x + 1, zerro.y);
+          Board.setCell(zerro.x, zerro.y, moveCell.id);
+          zerro.x = zerro.x + 1;
+        }
+        Board.setCell(cell.x, cell.y, 0);
+        updateBoard();           
+      }
+    } else {
+      if (zerro.x == cell.x) {
+        if (zerro.y > cell.y) {
+          while ( cell.y < zerro.y ) {
+            moveCell = Board.getCell(zerro.x, zerro.y - 1);
             Board.setCell(zerro.x, zerro.y, moveCell.id);
-            zerro.x = zerro.x - 1;
+            zerro.y = zerro.y - 1;
           }
           Board.setCell(cell.x, cell.y, 0);
           updateBoard();           
         } else {
-          while ( cell.x > zerro.x ) {
-            moveCell = Board.getCell(zerro.x + 1, zerro.y);
+          while ( cell.y > zerro.y ) {
+            moveCell = Board.getCell(zerro.x, zerro.y + 1);
             Board.setCell(zerro.x, zerro.y, moveCell.id);
-            zerro.x = zerro.x + 1;
+            zerro.y = zerro.y + 1;
           }
           Board.setCell(cell.x, cell.y, 0);
           updateBoard();           
-        }
-   } else {
-        if (zerro.x == cell.x) {
-          if (zerro.y > cell.y) {
-            while ( cell.y < zerro.y ) {
-              moveCell = Board.getCell(zerro.x, zerro.y - 1);
-              Board.setCell(zerro.x, zerro.y, moveCell.id);
-              zerro.y = zerro.y - 1;
-            }
-            Board.setCell(cell.x, cell.y, 0);
-            updateBoard();           
-        } else {
-            while ( cell.y > zerro.y ) {
-              moveCell = Board.getCell(zerro.x, zerro.y + 1);
-              Board.setCell(zerro.x, zerro.y, moveCell.id);
-              zerro.y = zerro.y + 1;
-        }
-            Board.setCell(cell.x, cell.y, 0);
-            updateBoard();           
-        }
-
         }
       }
-
+    }
   }
   
   function updateBoard() {
     const newBoard = Board.getCopyBoard();
     setBoard(newBoard);
-    if (JSON.stringify(newBoard.cells) == JSON.stringify(newBoard.cells0)) {
-      stopTimer();
-    }
+    newBoard.checkList();
+
+    if (Board.arraysEqual(newBoard.gameList,newBoard.etalon))
+      stopTimer();      
   }
 
   return (
