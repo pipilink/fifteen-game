@@ -1,7 +1,11 @@
 {
-  "hosting": {
-    "site": "fifteen",
-    "public": "build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
+    "hosting": {
+        "site": "fifteen",
+        "public": "build",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    }
 }
