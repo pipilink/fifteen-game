@@ -16,11 +16,14 @@ const BoardComponent: FC<BoardProps> = ({
 }) => {
     function click(cell: Cell) {
         let moveCell: Cell;
-        moveStack(Board.zerro, cell);
+
+        if (!Board.closeRound)
+            moveStack(Board.zerro, cell);
     }
 
     function moveStack(zerro: Cell, cell: Cell) {
         let moveCell: Cell;
+
         if (zerro.y == cell.y) {
             if (zerro.x > cell.x) {
                 while (cell.x < zerro.x) {
@@ -67,8 +70,11 @@ const BoardComponent: FC<BoardProps> = ({
         setBoard(newBoard);
         newBoard.checkList();
 
-        if (Board.arraysEqual(newBoard.gameList, newBoard.etalon))
+        if (Board.arraysEqual(newBoard.gameList, newBoard.etalon)) {
             stopTimer();
+            newBoard.closeRound = true;
+        }
+
     }
 
     return (

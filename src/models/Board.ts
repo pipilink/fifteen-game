@@ -5,11 +5,12 @@ export class Board {
     etalon: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
     gameList: [] = this.etalon.slice();
     zerro: Cell;
+    closeRound: boolean = true;
 
     public initCells() {
         let index = 1;
-
         this.gameList = this.shuffle(this.gameList);
+
 
         for (let i = 0; i < 4; i++) {
             const row: Cell[] = [];
@@ -66,6 +67,7 @@ export class Board {
         newBoard.cells = this.cells;
         newBoard.zerro = this.zerro;
         newBoard.gameList = this.gameList;
+        newBoard.closeRound = this.closeRound;
         return newBoard;
     }
 
@@ -73,6 +75,8 @@ export class Board {
         let currentIndex: number = array.length,
             temporaryValue,
             randomIndex;
+
+        this.closeRound = false;
 
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
