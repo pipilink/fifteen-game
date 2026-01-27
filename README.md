@@ -18,6 +18,8 @@ use firebase_login and firebase_password for Sign In
 
 npm run build:prod
 
+firebase deploy
+
 # create .env file end input firebase parameters:
 
       REACT_APP_APIKEY
@@ -50,8 +52,11 @@ Project initialization (run once):
    make Anonymous provider.
    (Enable anonymous guest accounts in your application, which lets you enforce user-specific Security and Firebase Rules without requiring credentials from your users)
 
-# TODO:
+# How can it be improved
 
-1. webpack - file-loader Не переносит ./public/icons/\*.png
-2. Уменьшить размер билда (leasy loading) для отдельной загрузки массива стран.
-3. Загрузить в БД массив стран с флагами и использовать их при выводе данных
+1. Уменьшить размер билда (leasy loading) для отдельной загрузки массива стран.
+2. Загрузить в БД массив стран с флагами и использовать их при выводе данных
+
+# Known bugs
+
+1. webpack - file-loader не переносит ./public/icons/\*.png

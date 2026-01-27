@@ -13,11 +13,11 @@ export class Board {
     
     for (let i = 0; i < 4; i++) {
       const row: Cell[] = [];
-      const row0: Cell[] = [];
+//      const row0: Cell[] = [];
       for (let j = 0; j < 4; j++) {
         if (index <= 16) {
           row.push(new Cell(j, i, this.gameList[index - 1]));
-          row0.push(new Cell(j, i, this.etalon[index - 1]));
+//          row0.push(new Cell(j, i, this.etalon[index - 1]));
           if (this.gameList[index - 1] == 0) {
             this.zerro = new Cell(j, i, 0)
           }
