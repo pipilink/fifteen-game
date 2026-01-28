@@ -2,14 +2,16 @@ import { Cell } from "./Cell";
 
 export class Board {
     cells: Cell[][] = [];
-    etalon: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
-    gameList: [] = this.etalon.slice();
+    etalon: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
+    gameList: number[] = this.etalon.slice();
     zerro: Cell;
     closeRound: boolean = true;
 
+
     public initCells() {
         let index = 1;
-        this.gameList = this.shuffle(this.gameList);
+        //        this.gameList = this.shuffle(this.gameList);
+        this.gameList = this.shuffleDrill(this.gameList);
 
 
         for (let i = 0; i < 4; i++) {
@@ -56,7 +58,7 @@ export class Board {
         return list.every((value, index) => value - 1 === index);
     }
 
-    public arraysEqual(a: [], b: []) {
+    public arraysEqual(a: number[], b: number[]) {
         if (a === b) return true;
         if (a.length !== b.length) return false;
         return a.every((v, i) => v === b[i]);
@@ -91,4 +93,31 @@ export class Board {
         }
         return array;
     }
+
+    private shuffleDrill(array: number[]) {
+        let temporaryValue: number,
+            randomIndex: number,
+            currentPos: number = 15,
+            steps = [
+                [1, 4], [2, 5, 0], [3, 6, 1], [7, 2],
+                [0, 5, 8], [1, 6, 9, 4], [2, 7, 10, 5], [3, 11, 6],
+                [4, 9, 12], [5, 10, 13, 8], [6, 11, 14, 9], [7, 15, 10],
+                [8, 13], [9, 14, 12], [10, 15, 13], [11, 14]]
+
+        this.closeRound = false;
+
+        for (let i = 1; i <= 256; i++) {
+
+            randomIndex = Math.floor(Math.random() * steps[currentPos]?.length + 1);
+            if (randomIndex) {
+
+                temporaryValue = array[currentPos];
+                array[currentPos] = array[steps[currentPos][randomIndex - 1]];
+                array[steps[currentPos][randomIndex - 1]] = temporaryValue;
+                currentPos = steps[currentPos][randomIndex - 1];
+            }
+        }
+        return array;
+    }
+
 }
