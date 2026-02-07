@@ -1,11 +1,4 @@
-import {
-    Ref,
-    forwardRef,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-    useState,
-} from "react";
+import { Ref, forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { Player } from "../models/Player";
 import { formatTime } from "../helpers/helpers";
 import { db } from "../firestoreDb";

@@ -1,15 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import countryList from "react-select-country-list";
 import { db } from "./firestoreDb";
-import {
-    child,
-    get,
-    onValue,
-    ref as dbsRef,
-    set,
-    update,
-    remove,
-} from "firebase/database";
+import { child, get, onValue, ref as dbsRef, update, remove } from "firebase/database";
 
 import "./App.scss";
 import BoardComponent from "./components/BoardComponent";

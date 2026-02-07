@@ -1,19 +1,11 @@
-export function formatTime(timeInCentiSeconds: number) {
-    let minutes: any = Math.floor(timeInCentiSeconds / 6000);
-    let seconds: any = Math.floor((timeInCentiSeconds % 6000) / 100);
-    let centiSeconds: any = timeInCentiSeconds % 100;
+const pad = (value: number) => value.toString().padStart(2, '0');
 
-    if (minutes < 10) {
-        minutes = `0${minutes}`;
-    }
-    if (seconds < 10) {
-        seconds = `0${seconds}`;
-    }
-    if (centiSeconds < 10) {
-        centiSeconds = `0${centiSeconds}`;
-    }
+export function formatTime(timeInCentiSeconds: number): string {
+    const minutes = Math.floor(timeInCentiSeconds / 6000);
+    const seconds = Math.floor((timeInCentiSeconds % 6000) / 100);
+    const centiSeconds = timeInCentiSeconds % 100;
 
-    return `${minutes}:${seconds}.${centiSeconds}`;
+    return `${pad(minutes)}:${pad(seconds)}.${pad(centiSeconds)}`;
 }
 
 export function convertToCentiSeconds(timeInMilliseconds: number) {
